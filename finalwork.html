@@ -1,32 +1,27 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CURRY的傳奇故事</title>
 <style>
   body {
-    margin: 0; padding: 0;
+    margin: 0;
+    padding: 0;
     font-family: "Microsoft JhengHei", sans-serif;
     color: white;
     background: url('curry1.jpg') no-repeat center center fixed;
     background-size: cover;
     transition: background-image 1s ease-in-out;
   }
-  
-  .slide {
-    display: none;
+
+  .content {
     max-width: 900px;
     margin: 50px auto;
     padding: 40px;
-    background-color: rgba(0, 0, 0, 0.7); /* 黑色半透明背景 */
+    background-color: rgba(0, 0, 0, 0.8); /* 黑色半透明背景 */
     border-radius: 10px;
     box-sizing: border-box;
-    position: relative;
-    z-index: 1; /* 確保文字層高於背景 */
-  }
-  .slide.active {
-    display: block;
   }
 
   h1 {
@@ -47,8 +42,6 @@
   .nav-buttons {
     text-align: center;
     margin: 20px 0 50px 0;
-    z-index: 2;
-    position: relative;
   }
 
   button {
@@ -61,6 +54,7 @@
     cursor: pointer;
     border-radius: 4px;
   }
+
   button:disabled {
     background-color: #444;
     cursor: not-allowed;
