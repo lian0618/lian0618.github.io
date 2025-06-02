@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<title>交通工具查詢</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  .item { cursor: pointer; color: blue; text-decoration: underline; margin: 5px 0; }
+  .item:hover { color: darkblue; }
+  #info { margin-top: 20px; padding: 10px; border: 1px solid #ccc; width: 400px; }
+</style>
+</head>
+<body>
+
+<h2>點擊交通工具名稱，查看拼音與解釋</h2>
+
+<div id="list">
+  <!-- 交通工具項目會放這裡 -->
+</div>
+
+<div id="info">
+  <em>請點擊上方的交通工具名稱查看資訊</em>
+</div>
+
+<script>
+// 資料字典
+const transportation = {
+  "汽車": {
+    "拼音": "qì chē",
+    "解釋": "用於陸地上的四輪交通工具，一般用於個人或家庭出行。"
+  },
+  "公車": {
+    "拼音": "gōng chē",
+    "解釋": "公共交通巴士，供多人搭乘的交通工具。"
+  },
+  "火車": {
+    "拼音": "huǒ chē",
+    "解釋": "運行於鐵軌上的交通工具，可載大量乘客和貨物。"
+  },
+  "地鐵": {
+    "拼音": "dì tiě",
+    "解釋": "在地下鐵軌上運行的交通工具，適合城市內快速移動。"
+  },
+  "高鐵": {
+    "拼音": "gāo tiě",
+    "解釋": "高速鐵路列車，速度很快，適合長途旅行。"
+  },
+  "飛機": {
+    "拼音": "fēi jī",
+    "解釋": "在空中飛行的交通工具，用於長距離移動。"
+  },
+  "直升機": {
+    "拼音": "zhí shēng jī",
+    "解釋": "可以垂直起降的飛行器，適合特殊場合。"
+  },
+  "輪船": {
+    "拼音": "lún chuán",
+    "解釋": "在水面上行駛的交通工具，適合長距離水上運輸。"
+  },
+  "客輪": {
+    "拼音": "kè lún",
+    "解釋": "載客船，專門用來運送旅客的船。"
+  },
+  "摩托車": {
+    "拼音": "mó tuō chē",
+    "解釋": "兩輪機動車，比汽車小巧靈活。"
+  },
+  "腳踏車": {
+    "拼音": "jiǎo tà chē",
+    "解釋": "以腳力踩動的兩輪交通工具。"
+  },
+  "電動滑板車": {
+    "拼音": "diàn dòng huá bǎn chē",
+    "解釋": "以電力驅動的小型滑板車，適合短途出行。"
+  },
+  "滑板": {
+    "拼音": "huá bǎn",
+    "解釋": "一種以平板和輪子構成的運動交通工具。"
+  },
+  "三輪車": {
+    "拼音": "sān lún chē",
+    "解釋": "有三個輪子的交通工具，常見於貨運或特殊用途。"
+  },
+  "計程車": {
+    "拼音": "jì chéng chē",
+    "解釋": "供乘客付費搭乘的出租汽車。"
+  },
+  "出租車（的士）": {
+    "拼音": "chū zū chē (dí shì)",
+    "解釋": "同計程車，專門接送乘客。"
+  },
+  "渡輪": {
+    "拼音": "dù lún",
+    "解釋": "運送人和車輛過河或過海的船。"
+  },
+  "熱氣球": {
+    "拼音": "rè qì qiú",
+    "解釋": "利用熱空氣上升原理飛行的交通工具，主要用於觀光。"
+  },
+  "馬車": {
+    "拼音": "mǎ chē",
+    "解釋": "由馬匹拉動的車輛，古時常用。"
+  }
+};
+
+// 把交通工具名生成到網頁
+const listDiv = document.getElementById('list');
+
+for (const name in transportation) {
+  const div = document.createElement('div');
+  div.textContent = name;
+  div.className = 'item';
+  div.onclick = () => {
+    const info = transportation[name];
+    document.getElementById('info').innerHTML = `<strong>${name}</strong><br>拼音: ${info['拼音']}<br>解釋: ${info['解釋']}`;
+  };
+  listDiv.appendChild(div);
+}
+</script>
+
+</body>
+</html>
