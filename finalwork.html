@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>CURRY的傳奇故事</title>
 <style>
   body {
@@ -13,46 +13,41 @@
     background: url('curry1.jpg') no-repeat center center fixed;
     background-size: cover;
     transition: background-image 1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
 
   .content {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 40px;
-    background-color: rgba(0, 0, 0, 0.8); /* 黑色半透明背景 */
-    border-radius: 10px;
+    max-width: 700px;
+    padding: 30px 40px;
+    background-color: rgba(0, 0, 0, 0.6); /* 微黑色背景 */
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1.4em;
     box-sizing: border-box;
   }
 
-  h1 {
-    text-align: center;
-    font-size: 2.5em;
-    margin-top: 20px;
-    color: white;
-    text-shadow: 2px 2px 5px black;
-  }
-
-  h2 {
-    font-size: 1.8em;
-    margin-bottom: 1em;
-    border-bottom: 2px solid #fff;
-    padding-bottom: 0.3em;
-  }
-
   .nav-buttons {
+    margin-top: 30px;
     text-align: center;
-    margin: 20px 0 50px 0;
   }
 
   button {
     background-color: #0066cc;
     color: white;
     border: none;
-    padding: 12px 20px;
-    margin: 0 10px;
+    padding: 12px 25px;
+    margin: 0 15px;
     font-size: 1em;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover:not(:disabled) {
+    background-color: #004a99;
   }
 
   button:disabled {
@@ -62,6 +57,64 @@
 </style>
 </head>
 <body>
+  <div class="content" id="content">
+    <!-- 文字段落會放這 -->
+  </div>
+  <div class="nav-buttons">
+    <button id="prevBtn" disabled>上一頁</button>
+    <button id="nextBtn">下一頁</button>
+  </div>
+
+<script>
+  const paragraphs = [
+    "史蒂芬·庫里（Stephen Curry），被譽為現代籃球三分球革命者，他的投籃技術改變了整個NBA的比賽風格。",
+    "庫里不僅以神準的三分球聞名，他的速度與控球能力也讓對手防不勝防，成為勇士隊奪冠的關鍵人物。",
+    "他持續突破自我極限，激勵新一代籃球員，成為籃球場上的傳奇與偶像。"
+  ];
+
+  const backgrounds = [
+    "curry1.jpg", // 第一頁背景優先度最高，固定
+    "curry2.jpg",
+  ];
+
+  const contentEl = document.getElementById("content");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  let currentIndex = 0;
+
+  function updateContent() {
+    contentEl.textContent = paragraphs[currentIndex];
+
+    // 第一頁固定用 curry1.jpg 背景，其餘頁換背景
+    if (currentIndex === 0) {
+      document.body.style.backgroundImage = `url(${backgrounds[0]})`;
+    } else {
+      document.body.style.backgroundImage = `url(${backgrounds[currentIndex]})`;
+    }
+
+    prevBtn.disabled = currentIndex === 0;
+    nextBtn.disabled = currentIndex === paragraphs.length -1;
+  }
+
+  prevBtn.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateContent();
+    }
+  });
+
+  nextBtn.addEventListener("click", () => {
+    if (currentIndex < paragraphs.length -1) {
+      currentIndex++;
+      updateContent();
+    }
+  });
+
+  // 初始化
+  updateContent();
+</script>
+</body>
 
 <h1>CURRY的傳奇故事</h1>
 
