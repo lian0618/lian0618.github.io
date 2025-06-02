@@ -6,37 +6,69 @@
 <title>CURRY的傳奇故事</title>
 <style>
   body {
+    margin: 0; padding: 0;
+    background: #111; /* 深色背景 */
     font-family: "Microsoft JhengHei", sans-serif;
-    margin: 0; padding: 0; background: #fff; color: #222;
+    color: white;
   }
   .slide {
     display: none;
-    padding: 40px;
+    position: relative;
     max-width: 900px;
-    margin: auto;
-    line-height: 1.6;
+    margin: 50px auto;
+    padding: 40px 200px; /* 左右留空間放背景圖 */
+    background-color: rgba(0,0,0,0.6); /* 半透明黑，讓文字清楚 */
+    border-radius: 10px;
+    box-sizing: border-box;
   }
   .slide.active {
     display: block;
   }
+
+  /* 左右背景圖片區 */
+  .slide::before, .slide::after {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 180px;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.7); /* 稍暗背景 */
+    z-index: 0;
+    border-radius: 10px;
+  }
+  .slide::before {
+    left: -200px;
+  }
+  .slide::after {
+    right: -200px;
+  }
+
+  /* 文字區在最上層 */
+  .slide > * {
+    position: relative;
+    z-index: 1;
+  }
+
   h1 {
-    font-size: 2.5em;
-    margin-bottom: 0.2em;
     text-align: center;
-    color: #003366;
+    font-size: 2.5em;
+    margin-top: 20px;
+    color: white;
   }
   h2 {
     font-size: 1.8em;
     margin-bottom: 1em;
-    border-bottom: 2px solid #003366;
+    border-bottom: 2px solid #fff;
     padding-bottom: 0.3em;
   }
+
   .nav-buttons {
     text-align: center;
-    margin: 20px 0;
+    margin: 20px 0 50px 0;
   }
   button {
-    background-color: #003366;
+    background-color: #0066cc;
     color: white;
     border: none;
     padding: 12px 20px;
@@ -46,7 +78,7 @@
     border-radius: 4px;
   }
   button:disabled {
-    background-color: #999;
+    background-color: #444;
     cursor: not-allowed;
   }
 </style>
