@@ -1,73 +1,65 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CURRY的傳奇故事</title>
-<style>
-  body {
-    margin: 0; padding: 0;
-    background: #111;
-    font-family: "Microsoft JhengHei", sans-serif;
-    color: white;
-  }
-  .slide {
-    display: none;
-    position: relative;
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 40px 200px;
-    background-color: rgba(0,0,0,0.6);
-    border-radius: 10px;
-    box-sizing: border-box;
-  }
-  .slide.active {
-    display: block;
-  }
-  /* 預設背景圖設定 */
-  .slide::before, .slide::after {
-    content: "";
-    position: absolute;
-    top: 0; bottom: 0;
-    width: 180px;
-    background-size: cover;
-    background-position: center;
-    filter: brightness(0.7);
-    z-index: 0;
-    border-radius: 10px;
-  }
-  .slide::before { left: -200px; }
-  .slide::after { right: -200px; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CURRY的傳奇故事</title>
+  <style>
+    body {
+      margin: 0; padding: 0;
+      background: #111;
+      font-family: "Microsoft JhengHei", sans-serif;
+      color: white;
+    }
+    .slide {
+      display: none;
+      position: relative;
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 40px 200px;
+      background-color: rgba(0,0,0,0.6);
+      border-radius: 10px;
+      box-sizing: border-box;
+    }
+    .slide.active {
+      display: block;
+    }
+    .slide::before, .slide::after {
+      content: "";
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 180px;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.7);
+      z-index: 0;
+      border-radius: 10px;
+    }
+    .slide::before { left: -200px; }
+    .slide::after { right: -200px; }
 
-  /* slide1 加上 curry1.jpg 圖片 */
-  #slide1::before, #slide1::after {
-    background-image: url('curry1.jpg');
-  }
+    #slide1::before, #slide1::after { background-image: url('curry1.jpg'); }
+    #slide2::before, #slide2::after { background-image: url('curry2.jpg'); }
 
-  /* slide2 加上 curry2.jpg 圖片 */
-  #slide2::before, #slide2::after {
-    background-image: url('curry2.jpg');
-  }
+    h1 { text-align: center; font-size: 2.5em; margin-top: 20px; }
+    h2 { font-size: 1.8em; margin-bottom: 1em; border-bottom: 2px solid #fff; padding-bottom: 0.3em; }
 
-  h1 { text-align: center; font-size: 2.5em; margin-top: 20px; color: white; }
-  h2 { font-size: 1.8em; margin-bottom: 1em; border-bottom: 2px solid #fff; padding-bottom: 0.3em; }
-
-  .nav-buttons {
-    text-align: center;
-    margin: 20px 0 50px 0;
-  }
-  button {
-    background-color: #0066cc;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    margin: 0 10px;
-    font-size: 1em;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  button:disabled { background-color: #444; cursor: not-allowed; }
-</style>
+    .nav-buttons {
+      text-align: center;
+      margin: 20px 0 50px 0;
+    }
+    button {
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      margin: 0 10px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:disabled { background-color: #444; cursor: not-allowed; }
+  </style>
 </head>
 <body>
 
