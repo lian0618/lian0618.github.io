@@ -7,7 +7,7 @@
 <style>
   body {
     margin: 0; padding: 0;
-    background: #111; /* 深色背景 */
+    background: #111;
     font-family: "Microsoft JhengHei", sans-serif;
     color: white;
   }
@@ -16,16 +16,15 @@
     position: relative;
     max-width: 900px;
     margin: 50px auto;
-    padding: 40px 200px; /* 左右留空間放背景圖 */
-    background-color: rgba(0,0,0,0.6); /* 半透明黑，讓文字清楚 */
+    padding: 40px 200px;
+    background-color: rgba(0,0,0,0.6);
     border-radius: 10px;
     box-sizing: border-box;
   }
   .slide.active {
     display: block;
   }
-
-  /* 左右背景圖片區 */
+  /* 預設背景圖設定 */
   .slide::before, .slide::after {
     content: "";
     position: absolute;
@@ -33,35 +32,25 @@
     width: 180px;
     background-size: cover;
     background-position: center;
-    filter: brightness(0.7); /* 稍暗背景 */
+    filter: brightness(0.7);
     z-index: 0;
     border-radius: 10px;
   }
-  .slide::before {
-    left: -200px;
-  }
-  .slide::after {
-    right: -200px;
+  .slide::before { left: -200px; }
+  .slide::after { right: -200px; }
+
+  /* slide1 加上 curry1.jpg 圖片 */
+  #slide1::before, #slide1::after {
+    background-image: url('curry1.jpg');
   }
 
-  /* 文字區在最上層 */
-  .slide > * {
-    position: relative;
-    z-index: 1;
+  /* slide2 加上 curry2.jpg 圖片 */
+  #slide2::before, #slide2::after {
+    background-image: url('curry2.jpg');
   }
 
-  h1 {
-    text-align: center;
-    font-size: 2.5em;
-    margin-top: 20px;
-    color: white;
-  }
-  h2 {
-    font-size: 1.8em;
-    margin-bottom: 1em;
-    border-bottom: 2px solid #fff;
-    padding-bottom: 0.3em;
-  }
+  h1 { text-align: center; font-size: 2.5em; margin-top: 20px; color: white; }
+  h2 { font-size: 1.8em; margin-bottom: 1em; border-bottom: 2px solid #fff; padding-bottom: 0.3em; }
 
   .nav-buttons {
     text-align: center;
@@ -77,10 +66,7 @@
     cursor: pointer;
     border-radius: 4px;
   }
-  button:disabled {
-    background-color: #444;
-    cursor: not-allowed;
-  }
+  button:disabled { background-color: #444; cursor: not-allowed; }
 </style>
 </head>
 <body>
